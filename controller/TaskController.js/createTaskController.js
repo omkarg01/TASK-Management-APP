@@ -9,6 +9,7 @@ exports.createTaskController = async (req, res) => {
         const todoId = req.params.id
         const todo = await Todo.findById(todoId)
         if (!todo) return new Error('No todo exists')
+
         todo.tasks.push(task)
         await todo.save()
 
