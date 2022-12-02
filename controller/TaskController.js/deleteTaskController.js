@@ -3,8 +3,6 @@ const Todo = require("../../model/TodoModel")
 
 exports.deleteTaskController = async (req, res) => {
     try {
-        s(400).send("Task is not provided")
-
         const todoId = req.params.id
         const todo = await Todo.findByIdAndDelete(todoId)
 
