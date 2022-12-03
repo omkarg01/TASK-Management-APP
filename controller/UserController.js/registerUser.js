@@ -1,4 +1,5 @@
 const UserModel = require("../../model/UserModel")
+const { generateToken } = require("../../utils/generateToken")
 
 exports.registerUser = async (req, res) => {
     try {
@@ -17,12 +18,13 @@ exports.registerUser = async (req, res) => {
             password
         })
 
-        user.password = null;
-
         if (user) {
             res.status(201).json({
                 message: "User created successfully",
-                user
+                token: generateToken(user._id),
+                id: user._id,
+                name,
+                email
             })
         } else {
             res.status(400)

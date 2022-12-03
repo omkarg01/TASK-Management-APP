@@ -1,4 +1,5 @@
 const UserModel = require("../../model/UserModel")
+const { generateToken } = require("../../utils/generateToken")
 
 exports.authUser = async (req, res) => {
     try {
@@ -8,9 +9,11 @@ exports.authUser = async (req, res) => {
 
         if (user && (await user.matchPassword(password))) {
             res.json({
+                message: "login successful",
                 _id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                token: generateToken(user._id)
             })
         } else {
             res.status(400)
@@ -19,7 +22,8 @@ exports.authUser = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: error.message,
+            message: error.message
+            
         });
     }
 }
