@@ -2,9 +2,6 @@ import axios from 'axios'
 
 export const login = (email, password) => async (dispatch) => {
     try {
-        dispatch({
-            type: "USER_LOGIN_REQUEST",
-        })
 
         const config = {
             headers: {
@@ -13,7 +10,7 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            '/api/users/login',
+            '/login',
             { email, password },
             config
         )
