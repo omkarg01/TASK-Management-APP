@@ -5,6 +5,7 @@ const Todo = require("../../model/TodoModel")
 exports.getTodosController = async (req, res) => {
     try {
         const todos = await Todo.find({ user: req.user._id })
+        console.log(req.user)
 
         res.status(200).json({
             status: true,

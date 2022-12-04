@@ -6,6 +6,7 @@ exports.createTodosController = async (req, res) => {
         
         const { title } = req.body;
         if (!title) return new Error("Title is not provided")
+        // console.log(req.user)
         
         const todo = await Todo.create({
             user: req.user._id,

@@ -9,6 +9,8 @@ export const login = (email, password) => async (dispatch) => {
             },
         }
 
+        console.log("login action in userActions.js")
+
         const { data } = await axios.post(
             '/login',
             { email, password },

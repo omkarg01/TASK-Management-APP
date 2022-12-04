@@ -5,13 +5,13 @@ const { getTodosController, createTodosController, editTodosController, deleteTo
 const { protect } = require('../middleware/authMiddleware.js');
 const router = express.Router();
 
-router.get("/getTodo",protect, getTodosController)
+router.get("/getTodo", protect, getTodosController)
 router.post("/createTodo", protect, createTodosController)
 router.put("/editTodo/:id", protect, editTodosController)
-router.delete("/deleteTodo/:id",protect, deleteTodosController)
+router.delete("/deleteTodo/:id", protect, deleteTodosController)
 
-router.post("/createTask/:id",protect, createTaskController)
-router.put("/editTask/:id",protect, editTaskController)
+router.post("/createTask/:id", protect, createTaskController)
+router.put("/editTask/:id", protect, editTaskController)
 
 module.exports = router;
 
