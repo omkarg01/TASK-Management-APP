@@ -5,8 +5,7 @@ import { FaEdit } from "react-icons/fa"
 import { useDispatch } from 'react-redux';
 import { updateTodoTitle } from '../actions/todoActions';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ButtonsGroup from './ButtonGroup';
+import ButtonsGroup2 from './ButtonGroup2';
 
 function MyVerticallyCenteredModal(props) {
     const [title, setTitle] = useState(props.todo.title);
@@ -34,10 +33,10 @@ function MyVerticallyCenteredModal(props) {
                 </Button>
             </Modal.Header>
             <Modal.Body>
-                <ListGroup as="ol" numbered>
+                <ListGroup as="ol">
                     {props.todo.tasks !== 0 && props.todo.tasks.map((task, index) => (<>
-                        <ListGroup.Item key={index} as="li">{task}
-                            <ButtonsGroup/></ListGroup.Item>
+                        <ListGroup.Item key={index} className="d-flex justify-content-around" as="li">{task}
+                            <ButtonsGroup2/></ListGroup.Item>
                     </>))}
                 </ListGroup>
             </Modal.Body>

@@ -17,7 +17,6 @@ function HomeScreen() {
     const userDetails = useSelector((state) => state.userDetails)
     const { user } = userDetails;
     console.log("userProfile", user.todo)
-    // console.log(Object.keys(user).length)
 
     const getUserData = () => {
         dispatch(getUserProfile())
@@ -28,8 +27,8 @@ function HomeScreen() {
         <>
             <Button onClick={getUserData}>Get User Data</Button>
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: "70px"}}> 
-                <ListGroup variant='flush' style={{width:"30%"}}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: "70px" }}>
+                <ListGroup variant='flush' style={{ width: "30%" }}>
                     {user && Object.keys(user).length !== 0 && user.todo.map((each) => <ListGroupItem key={each._id} todo={each}>{each.title}</ListGroupItem>)}
                 </ListGroup>
             </div>
