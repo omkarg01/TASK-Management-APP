@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaEdit } from "react-icons/fa"
 
 function MyVerticallyCenteredModal(props) {
-    // console.log("props", props)
+    const [title, setTitle] = useState(props.todo.title);
+
+    const titlehandler = () => {
+        const newTitle = prompt("Enter new title");
+        setTitle(newTitle);
+    };
+
     return (
         <Modal
             {...props}
@@ -14,9 +21,9 @@ function MyVerticallyCenteredModal(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {props.todo.title}
+                    {title}
                 </Modal.Title>
-                <Button className='ml-3' >
+                <Button className='ml-3' onClick={titlehandler}>
                     <FaEdit />
                 </Button>
             </Modal.Header>
