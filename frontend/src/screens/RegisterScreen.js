@@ -16,7 +16,7 @@ const RegisterScreen = ({ location, history }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  
+
   const userRegister = useSelector((state) => state.userRegister)
   const { error, userInfo } = userRegister;
   // console.log("userRegister", userRegister)
@@ -24,10 +24,8 @@ const RegisterScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
-    } else {
-      dispatch(logout());
-    }
+      navigate("/login");
+    } 
   }, [userInfo]);
 
   const submitHandler = (e) => {
