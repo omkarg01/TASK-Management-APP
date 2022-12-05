@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button, ListGroup } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
+import ButtonsGroup from './ButtonGroup';
 import MyVerticallyCenteredModal from './Modal';
 
 const ListGroupItem = ({ children, todo }) => {
@@ -8,10 +9,12 @@ const ListGroupItem = ({ children, todo }) => {
 
     return (
         <div>
-            <ListGroup.Item className='mb-2'>{children}<Button variant="primary" className='ml-5 position-absolute top-50 start-100 translate-middle' onClick={() => setModalShow(true)}>View</Button> <MyVerticallyCenteredModal todo={todo}
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            /></ListGroup.Item>
+            <ListGroup.Item className='mb-2'>{children}
+                <ButtonsGroup setModalShow={setModalShow}/>
+                <MyVerticallyCenteredModal todo={todo}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                /></ListGroup.Item>
         </div>
     )
 }

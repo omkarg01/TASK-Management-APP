@@ -1,6 +1,7 @@
 import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { FaEdit } from "react-icons/fa"
 
 function MyVerticallyCenteredModal(props) {
     // console.log("props", props)
@@ -15,6 +16,9 @@ function MyVerticallyCenteredModal(props) {
                 <Modal.Title id="contained-modal-title-vcenter">
                     {props.todo.title}
                 </Modal.Title>
+                <Button className='ml-3' >
+                    <FaEdit />
+                </Button>
             </Modal.Header>
             <Modal.Body>
                 <ListGroup as="ol" numbered>
