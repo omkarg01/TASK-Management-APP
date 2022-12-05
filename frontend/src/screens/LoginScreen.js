@@ -3,29 +3,28 @@ import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FornContainer'
-import { getUserProfile, login } from '../actions/userActions'
+import { getUserProfile, login, logout } from '../actions/userActions'
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = ({ location, history }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const navigate = useNavigate();
     const dispatch = useDispatch()
 
     const userLogin = useSelector((state) => state.userLogin)
     const { error, userInfo } = userLogin;
 
-    const userProfile = useSelector((state) => state.userDetails)
+    // const userProfile = useSelector((state) => state.userDetails)
     // const { user } = userProfile;
-    console.log("userProfile", userProfile)
+    // console.log("userProfile", userProfile)
 
-
-
-    //   const redirect = location.search ? location.search.split('=')[1] : '/'
-    //   useEffect(() => {
-    //     if (true) {
-    //       history.push(redirect)
-    //     }
-    //   }, [history, userInfo, redirect])
+    useEffect(() => {
+        if (userInfo) {
+            logout();
+            navigate("/");
+        }
+    }, [userInfo]);
 
     const submitHandler = (e) => {
         e.preventDefault()
