@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaEdit } from "react-icons/fa"
 import { useDispatch } from 'react-redux';
 import { updateTodoTitle } from '../actions/todoActions';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ButtonsGroup from './ButtonGroup';
 
 function MyVerticallyCenteredModal(props) {
     const [title, setTitle] = useState(props.todo.title);
@@ -33,7 +35,10 @@ function MyVerticallyCenteredModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <ListGroup as="ol" numbered>
-                    {props.todo.tasks !== 0 && props.todo.tasks.map((task, index) => <ListGroup.Item key={index} as="li">{task}</ListGroup.Item>)}
+                    {props.todo.tasks !== 0 && props.todo.tasks.map((task, index) => (<>
+                        <ListGroup.Item key={index} as="li">{task}
+                            <ButtonsGroup/></ListGroup.Item>
+                    </>))}
                 </ListGroup>
             </Modal.Body>
             <Modal.Footer>

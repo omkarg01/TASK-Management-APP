@@ -8,11 +8,11 @@ import RegisterScreen from "./screens/RegisterScreen";
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header />
       <main className='py-3'>
         <Container>
           <Routes>
-            <Route path='/' element={<HomeScreen/>} />
+            <Route path='/' element={<HomeScreen />} />
             <Route path='/login' element={<LoginScreen />} />
             <Route path='/register' element={<RegisterScreen />} />
           </Routes>
