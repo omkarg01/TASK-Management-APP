@@ -8,7 +8,7 @@ const ListGroupItem = (props) => {
 
     return (
         <div>
-            <ListGroup.Item>{props.children}<Button variant="primary" onClick={() => setModalShow(true)}>Secondary</Button> <MyVerticallyCenteredModal
+            <ListGroup.Item className='mb-2'>{props.children}<Button variant="primary" className='ml-5 position-absolute top-50 start-100 translate-middle' onClick={() => setModalShow(true)}>View</Button> <MyVerticallyCenteredModal header={props.children}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             /></ListGroup.Item>

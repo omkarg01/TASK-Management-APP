@@ -27,13 +27,15 @@ function HomeScreen() {
 
     return (
         <>
-            <ListGroup variant='flush'>
-                <ListGroupItem>My Custom Group Item 1</ListGroupItem>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
+            <div className="position-absolute top-50 start-50 translate-middle">
+                <ListGroup variant='flush'>
+                    <ListGroupItem>My Custom Group Item 1</ListGroupItem>
+                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+                    <ListGroupItem>Morbi leo risus</ListGroupItem>
+                    <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
+                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                </ListGroup>
+            </div>
         </>
     );
 }
