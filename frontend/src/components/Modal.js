@@ -3,12 +3,16 @@ import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaEdit } from "react-icons/fa"
+import { useDispatch } from 'react-redux';
+import { updateTodoTitle } from '../actions/todoActions';
 
 function MyVerticallyCenteredModal(props) {
     const [title, setTitle] = useState(props.todo.title);
+    const dispatch = useDispatch();
 
     const titlehandler = () => {
         const newTitle = prompt("Enter new title");
+        dispatch(updateTodoTitle(newTitle, props.todo._id,));
         setTitle(newTitle);
     };
 
@@ -29,7 +33,7 @@ function MyVerticallyCenteredModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <ListGroup as="ol" numbered>
-                    {props.todo.tasks !== 0 && props.todo.tasks.map((task) => <ListGroup.Item as="li">{task}</ListGroup.Item>)}
+                    {props.todo.tasks !== 0 && props.todo.tasks.map((task, index) => <ListGroup.Item key={index} as="li">{task}</ListGroup.Item>)}
                 </ListGroup>
             </Modal.Body>
             <Modal.Footer>

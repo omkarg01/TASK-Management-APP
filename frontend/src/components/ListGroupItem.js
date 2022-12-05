@@ -10,7 +10,7 @@ const ListGroupItem = ({ children, todo }) => {
     return (
         <div>
             <ListGroup.Item className='mb-2'>{children}
-                <ButtonsGroup setModalShow={setModalShow}/>
+                <ButtonsGroup setModalShow={setModalShow} />
                 <MyVerticallyCenteredModal todo={todo}
                     show={modalShow}
                     onHide={() => setModalShow(false)}
