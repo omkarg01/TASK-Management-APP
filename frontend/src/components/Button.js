@@ -1,12 +1,12 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 
-const Buttons = () => {
+const MyButton = ({ text }) => {
     return (
         <>
-            <Button variant="primary">Primary</Button>{' '}
+            <Button variant="primary">{text}</Button>
         </>
     )
 }
 
-export default Buttons
+export default MyButton

@@ -89,8 +89,6 @@ export const getUserProfile = () => async (dispatch, getState) => {
 
         const { data } = await axios.get('/profile', config)
 
-        console.log("data", data)
-
         dispatch({
             type: "USER_DETAILS_SUCCESS",
             payload: data,
