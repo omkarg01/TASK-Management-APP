@@ -16,7 +16,8 @@ function HomeScreen() {
 
     const userDetails = useSelector((state) => state.userDetails)
     const { user } = userDetails;
-    console.log("userProfile", userDetails)
+    console.log("userProfile", user.todo)
+    // console.log(Object.keys(user).length)
 
     const getUserData = () => {
         dispatch(getUserProfile())
@@ -27,15 +28,12 @@ function HomeScreen() {
 
     return (
         <>
-            <div className="position-absolute top-50 start-50 translate-middle">
-                <ListGroup variant='flush'>
-                    <ListGroupItem>My Custom Group Item 1</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Morbi leo risus</ListGroupItem>
-                    <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-            </div>
+            <Button onClick={getUserData}>Get User Data</Button>
+            <ListGroup variant='flush'>
+                <div className="position-absolute top-50 start-50 translate-middle">
+                    {user && Object.keys(user).length !== 0 && user.todo.map((each) => <ListGroupItem key={each._id} todo ={each}>{each.title}</ListGroupItem>)}
+                </div>
+            </ListGroup>
         </>
     );
 }

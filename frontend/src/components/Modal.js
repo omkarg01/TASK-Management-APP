@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function MyVerticallyCenteredModal(props) {
-    console.log("props", props)
+    // console.log("props", props)
     return (
         <Modal
             {...props}
@@ -13,14 +13,12 @@ function MyVerticallyCenteredModal(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {props.header}
+                    {props.todo.title}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <ListGroup as="ol" numbered>
-                    <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+                    {props.todo.tasks !== 0 && props.todo.tasks.map((task) => <ListGroup.Item as="li">{task}</ListGroup.Item>)}
                 </ListGroup>
             </Modal.Body>
             <Modal.Footer>
