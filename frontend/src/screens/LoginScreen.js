@@ -19,10 +19,12 @@ const LoginScreen = ({ location, history }) => {
     // const { user } = userProfile;
     // console.log("userProfile", userProfile)
 
+    console.log(userInfo)
     useEffect(() => {
         if (userInfo) {
-            logout();
             navigate("/");
+        } else {
+            dispatch(logout());
         }
     }, [userInfo]);
 

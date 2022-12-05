@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../actions/userActions'
+import { logout, register } from '../actions/userActions'
 import FormContainer from '../components/FornContainer'
 import Message from '../components/Message'
 
@@ -14,17 +14,21 @@ const RegisterScreen = ({ location, history }) => {
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
+  
   const userRegister = useSelector((state) => state.userRegister)
   const { error, userInfo } = userRegister;
   // console.log("userRegister", userRegister)
 
 
-//   useEffect(() => {
-//     if (userInfo) {
-//       history.push(redirect)
-//     }
-//   }, [history, userInfo, redirect])
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    } else {
+      dispatch(logout());
+    }
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault()
