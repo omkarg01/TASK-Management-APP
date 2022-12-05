@@ -20,7 +20,6 @@ function HomeScreen() {
     };
 
     useEffect(() => {
-
     }, [])
 
     return (
