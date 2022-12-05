@@ -13,9 +13,18 @@ function MyVerticallyCenteredModal(props) {
 
     const titlehandler = () => {
         const newTitle = prompt("Enter new title");
-        dispatch(updateTodoTitle(newTitle, props.todo._id,));
-        setTitle(newTitle);
+        if (newTitle) {
+            setTitle(newTitle);
+            dispatch(updateTodoTitle(props.todo._id, newTitle));
+        }
     };
+
+    const taskEditHandler = () => {
+         
+    }
+    const taskDeleteHandler = () => {
+
+    }
 
     return (
         <Modal
@@ -36,7 +45,7 @@ function MyVerticallyCenteredModal(props) {
                 <ListGroup as="ol">
                     {props.todo.tasks !== 0 && props.todo.tasks.map((task, index) => (<>
                         <ListGroup.Item key={index} className="d-flex justify-content-around" as="li">{task}
-                            <ButtonsGroup2/></ListGroup.Item>
+                            <ButtonsGroup2 /></ListGroup.Item>
                     </>))}
                 </ListGroup>
             </Modal.Body>
@@ -47,4 +56,4 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
-export default MyVerticallyCenteredModal;   
+export default MyVerticallyCenteredModal;

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const updateTodoTitle = (id, title) => async (dispatch, getState) => {
+export const updateTask = (task, key, id) => async (dispatch, getState) => {
     try {
         const {
             userLogin: { userInfo },
@@ -10,28 +10,27 @@ export const updateTodoTitle = (id, title) => async (dispatch, getState) => {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`,
-            },
+            }
         }
 
         const { data } = await axios.put(
-            `/editTodo/${id}`,
-            { title },
+            `/editTask/${id}`,
+            {task, key},
             config
         )
 
-        console.log("data.title", data)
-
         dispatch({
-            type: "EDIT_TODO_SUCCESS",
-            payload: data.todo.title,
+            type: "EDIT_TASK_SUCCESS",
+            payload: data,
         })
     } catch (error) {
         dispatch({
-            type: "EDIT_TODO_FAIL",
+            type: "EDIT_TASK_FAIL",
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message,
         })
-    }
+    }   
 }
+

@@ -4,7 +4,6 @@ import ButtonsGroup from './ButtonGroup';
 import MyVerticallyCenteredModal from './Modal';
 
 const ListGroupItem = ({ children, todo }) => {
-
     const [modalShow, setModalShow] = useState(false);
 
     return (

@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserProfile } from '../actions/userActions';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -16,7 +12,10 @@ function HomeScreen() {
 
     const userDetails = useSelector((state) => state.userDetails)
     const { user } = userDetails;
-    console.log("userProfile", user.todo)
+
+    const todoDetails = useSelector((state) => state.editTodo)
+    const { title } = todoDetails;
+    console.log("todoDetails", user.todo)
 
     const getUserData = () => {
         dispatch(getUserProfile())
