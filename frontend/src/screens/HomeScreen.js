@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserProfile } from '../actions/userActions';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from '../components/ListGroupItem';
+import { MDBInput } from 'mdb-react-ui-kit';
+import { TaskModal } from '../components/TaskModal';
 
 
 function HomeScreen() {
@@ -25,7 +27,8 @@ function HomeScreen() {
         <>
             <Button onClick={getUserData}>Get User Data</Button>
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: "70px" }}>
+            <div style={{ display: 'flex', flexDirection: "column", alignItems: "center", justifyContent: 'center', marginTop: "70px" }}>
+                <TaskModal/>
                 <ListGroup variant='flush' style={{ width: "30%" }}>
                     {user && Object.keys(user).length !== 0 && user.todo.map((each) => <ListGroupItem key={each._id} todo={each}>{each.title}</ListGroupItem>)}
                 </ListGroup>

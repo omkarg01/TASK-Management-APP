@@ -1,17 +1,8 @@
-import React from 'react'
-import { InputGroup } from 'react-bootstrap'
+import React from 'react';
+import { MDBInput } from 'mdb-react-ui-kit';
 
-const Form = () => {
-    return (
-        <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">Title</InputGroup.Text>
-            <Form.Control
-                placeholder="Enter title"
-                aria-label="title"
-                aria-describedby="basic-addon1"
-            />
-        </InputGroup>
-    )
+export default function App() {
+  return (
+   <></>
+  );
 }
-
-export default Form
