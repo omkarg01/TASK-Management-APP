@@ -18,6 +18,8 @@ export const updateTask = (task, key, id) => async (dispatch, getState) => {
             {task, key},
             config
         )
+        console.log("data", data)
+        data["key"] = key;
 
         dispatch({
             type: "EDIT_TASK_SUCCESS",

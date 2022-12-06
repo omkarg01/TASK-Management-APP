@@ -3,12 +3,14 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { userDetailsReducer, userLoginReducer, userRegisterReducer } from './reducers/userReducers'
 import { editTodoReducer } from './reducers/todoReducers'
+import { editTaskReducer } from './reducers/taskReducer'
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     userDetails: userDetailsReducer,
     userRegister: userRegisterReducer,
     editTodo: editTodoReducer,
+    editTask: editTaskReducer,
 })
 
 
