@@ -32,8 +32,8 @@ export function TaskModal() {
 
     const createTaskHandler = () => {
         dispatch(createTask(title, task));
-        setTitle('');
         setTask('');
+        setTitle('');
     }
 
     return (
@@ -82,11 +82,11 @@ export function TaskModal() {
                             </form>
                         </MDBModalBody>
                         <MDBModalFooter>
-                            <MDBBtn color='secondary' onClick={createTaskHandler}
-                            >
+                            <MDBBtn color='secondary'
+                                onClick={() => (setVaryingModal(!varyingModal))}>
                                 Close
                             </MDBBtn>
-                            <MDBBtn>Create Task</MDBBtn>
+                            <MDBBtn onClick={createTaskHandler}>Create Task</MDBBtn>
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>
