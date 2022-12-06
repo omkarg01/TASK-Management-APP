@@ -29,20 +29,21 @@ export function TaskModal() {
     return (
         <>
             <MDBBtn
+                className='mb-5'
                 onClick={() => {
                     setVaryingState("");
                     setVaryingModal(!varyingModal);
                     setTitle("");
                 }}
             >
-                Open modal for @getbootstrap
+                Assign new task:
             </MDBBtn>
 
             <MDBModal show={varyingModal} setShow={setVaryingModal} tabIndex='-1'>
                 <MDBModalDialog>
                     <MDBModalContent>
                         <MDBModalHeader>
-                            <MDBModalTitle>New message to {varyingState}</MDBModalTitle>
+                            <MDBModalTitle>Assign new task:</MDBModalTitle>
                             <MDBBtn className='btn-close' color='none' onClick={() => setVaryingModal(!varyingModal)}></MDBBtn>
                         </MDBModalHeader>
                         <MDBModalBody>
@@ -75,7 +76,7 @@ export function TaskModal() {
                             <MDBBtn color='secondary' onClick={() => setVaryingModal(!varyingModal)}>
                                 Close
                             </MDBBtn>
-                            <MDBBtn>Save changes</MDBBtn>
+                            <MDBBtn>Create Task</MDBBtn>
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>
