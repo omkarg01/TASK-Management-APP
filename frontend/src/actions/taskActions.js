@@ -15,7 +15,7 @@ export const updateTask = (task, key, id) => async (dispatch, getState) => {
 
         const { data } = await axios.put(
             `/editTask/${id}`,
-            {task, key},
+            { task, key },
             config
         )
         console.log("data", data)
@@ -33,6 +33,42 @@ export const updateTask = (task, key, id) => async (dispatch, getState) => {
                     ? error.response.data.message
                     : error.message,
         })
-    }   
+    }
 }
 
+export const createTask = (title,task) => async (dispatch, getState) => {
+    try {
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            }
+        }
+
+        const { data } = await axios.post(
+            `/createTodo`,
+            { title, task },
+            config
+        )
+        console.log("data", data)
+
+        dispatch({
+            type: "CREATE_TASK_SUCCESS",
+            payload: data,
+        })
+
+    } catch (error) {
+        dispatch({
+            type: "CREATE_TASK_FAIL",
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}

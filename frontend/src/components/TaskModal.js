@@ -11,12 +11,16 @@ import {
     MDBTextArea,
     MDBInput,
 } from 'mdb-react-ui-kit';
+import { useDispatch } from 'react-redux';
+import { createTask } from '../actions/taskActions';
 
 export function TaskModal() {
-    const [varyingState, setVaryingState] = useState('');
+    // const [varyingState, setVaryingState] = useState('');
     const [varyingModal, setVaryingModal] = useState(false);
     const [title, setTitle] = useState('');
     const [task, setTask] = useState('');
+
+    const dispatch = useDispatch();
 
     const onChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -26,12 +30,17 @@ export function TaskModal() {
         setTask(event.target.value);
     };
 
+    const createTaskHandler = () => {
+        dispatch(createTask(title, task));
+        setTitle('');
+        setTask('');
+    }
+
     return (
         <>
             <MDBBtn
                 className='mb-5'
                 onClick={() => {
-                    setVaryingState("");
                     setVaryingModal(!varyingModal);
                     setTitle("");
                 }}
@@ -73,7 +82,8 @@ export function TaskModal() {
                             </form>
                         </MDBModalBody>
                         <MDBModalFooter>
-                            <MDBBtn color='secondary' onClick={() => setVaryingModal(!varyingModal)}>
+                            <MDBBtn color='secondary' onClick={createTaskHandler}
+                            >
                                 Close
                             </MDBBtn>
                             <MDBBtn>Create Task</MDBBtn>

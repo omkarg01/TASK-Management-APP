@@ -3,15 +3,17 @@ const Todo = require("../../model/TodoModel")
 
 exports.createTodosController = async (req, res) => {
     try {
-        
-        const { title } = req.body;
+
+        const { title, task } = req.body;
         if (!title) return new Error("Title is not provided")
         // console.log(req.user)
-        
+
         const todo = await Todo.create({
             user: req.user._id,
-            title
+            title,
+            tasks: [task]
         })
+
 
         res.status(200).json({
             status: true,
