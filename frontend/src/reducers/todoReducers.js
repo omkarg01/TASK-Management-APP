@@ -8,3 +8,14 @@ export const editTodoReducer = (state = {}, action) => {
             return state;
     }
 }
+
+export const deleteTodoReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "DELETE_TODO_SUCCESS":
+            return { success: true }
+        case "DELETE_TODO_FAIL":
+            return { error: action.payload }
+        default:
+            return state;
+    }
+}

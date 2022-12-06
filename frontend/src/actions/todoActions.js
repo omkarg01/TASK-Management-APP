@@ -35,3 +35,29 @@ export const updateTodoTitle = (id, title) => async (dispatch, getState) => {
         })
     }
 }
+
+export const deleteTodo = (id) => async (dispatch, getState) => {
+    try {
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        await axios.delete(`/deleteTodo/${id}`, config)
+
+        dispatch({ type: "DELETE_TODO_SUCCESS" })
+    } catch (error) {
+        dispatch({
+            type: "DELETE_TODO_FAIL",
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}

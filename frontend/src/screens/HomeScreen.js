@@ -14,7 +14,6 @@ function HomeScreen() {
     const { user } = userDetails;
 
     const todoDetails = useSelector((state) => state.editTodo)
-    const { title } = todoDetails;
     console.log("todoDetails", user.todo)
 
     const getUserData = () => {
